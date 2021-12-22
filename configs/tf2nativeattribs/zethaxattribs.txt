@@ -1,0 +1,11 @@
+"attributes"
+{
+    //Grants a fire rate bonus for 3 seconds after deploying a weapon
+    "5201"
+    {
+        "name"  "fire rate bonus after deploy"
+        "attribute_class"   "mult_fire_rate_temp"
+        "description_format"    "value_is_percentage"
+        "effect_type"   "positive"
+    }
+}
