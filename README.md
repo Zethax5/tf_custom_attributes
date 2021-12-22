@@ -12,12 +12,15 @@ These plugins are rather dirty, and I'm absolutely certain there are better ways
 # Included Attributes
 
 "fire rate bonus after deploy" #5201
+  
   Grants the given weapon a given fire rate bonus for the first 3 seconds after deploying
  
 "fire rate bonus on primary" #5202
+  
   Grants your primary weapon the given fire rate bonus
 
 "reload rate bonus on primary" #5203
+  
   Grants your primary weapon the given reload rate bonus
 
 # Source Code
