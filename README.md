@@ -11,12 +11,15 @@ These plugins are rather dirty, and I'm absolutely certain there are better ways
 
 # Included Attributes
 
+<details> <p>
+  <summary> Click here to expand </summary>
+
 ```
 "fire rate bonus after deploy" #5201
   Grants the given weapon a given fire rate bonus for the first 3 seconds after deploying
     0.75 = 25% fire rate bonus for the first 3 seconds after deploying
   TO DO: Make a convar that controls duration
- 
+
 "fire rate bonus on primary" #5200
   Grants your primary weapon the given fire rate bonus
     0.9 = 10% fire rate bonus on the primary weapon
@@ -114,6 +117,9 @@ These plugins are rather dirty, and I'm absolutely certain there are better ways
   Assisting in a kill will heal for the given amount. This can overheal up to 150%.
   Respects "While Active" rules.
 ```
+
+</p>
+</details>
 
 # Source Code
 
