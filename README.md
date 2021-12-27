@@ -52,7 +52,7 @@ These plugins are rather dirty, and I'm absolutely certain there are better ways
 
 "ramping damage resistance while aiming" #5209
   Same as above, but instead ramps up over the course of 2 seconds after aiming/spinning up.
-    0.8 = 20% damage resistance at maximum
+    0.2 = 20% damage resistance at maximum
   This damage resistance will decay while being healed, at the same rate as it ramps up.
 
 "speed bonus while capping" #5210
