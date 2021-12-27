@@ -5,7 +5,179 @@
     {
         "name"  "fire rate bonus after deploy"
         "attribute_class"   "mult_fire_rate_temp"
+        "description_string"    "melee cleave attack"
         "description_format"    "value_is_percentage"
+        "hidden"    "0"
+        "effect_type"   "positive"
+        "stored_as_integer" "0"
+    }
+    "5200"
+    {
+        "name"  "fire rate bonus on primary"
+        "attribute_class"   "mult_fire_rate_on_primary"
+        "description_string"    "melee cleave attack"
+        "description_format"    "value_is_percentage"
+        "hidden"    "0"
+        "effect_type"   "positive"
+        "stored_as_integer" "0"
+    }
+    "4999"
+    {
+        "name"  "reload rate bonus on primary"
+        "attribute_class"   "mult_reload_rate_on_primary"
+        "description_string"    "melee cleave attack"
+        "description_format"    "value_is_percentage"
+        "hidden"    "0"
+        "effect_type"   "positive"
+        "stored_as_integer" "0"
+    }
+    "5204"
+    {
+        "name"  "kill with any weapon reloads"
+        "attribute_class"   "kill_reloads_weapon"
+        "description_format"    "value_is_additive"
+        "effect_type"   "positive"
+    }
+    "5205"
+    {
+        "name"  "percent damage done heals"
+        "attribute_class"   "heal_for_damage_done"
+        "description_format"    "value_is_percentage"
+        "effect_type"   "positive"
+    }
+    "5206"
+    {
+        "name"  "heal for healing done"
+        "attribute_class"   "heal_for_healing_done"
+        "description_format"    "value_is_percentage"
+        "effect_type"   "positive"
+    }
+    "5207"
+    {
+        "name"  "bullets ignite at close range"
+        "attribute_class"   "closerange_ignite"
+        "description_format"    "value_is_additive"
+        "effect_type"   "positive"
+    }
+    "5208"
+    {
+        "name"  "damage resistance while aiming"
+        "attribute_class"   "mult_dmgtaken_while_aiming"
+        "description_format"    "value_is_percentage"
+        "effect_type"   "positive"
+    }
+    "5209"
+    {
+        "name"  "ramping damage resistance while aiming"
+        "attribute_class"   "mult_dmgtaken_while_aiming_rampup"
+        "description_format"    "value_is_percentage"
+        "effect_type"   "positive"
+    }
+    "5210"
+    {
+        "name"  "speed bonus while capping"
+        "attribute_class"   "mult_capturing_movespeed"
+        "description_format"    "value_is_percentage"
+        "effect_type"   "positive"
+    }
+    "5211"
+    {
+        "name"  "healing bonus with reduced health"
+        "attribute_class"   "mult_healing_received_with_reduced_health"
+        "description_format"    "value_is_percentage"
+        "effect_type"   "positive"
+    }
+    "5212"
+    {
+        "name"  "damage penalty after sticky arm"
+        "attribute_class"   "mult_dmg_after_arm"
+        "description_format"    "value_is_percentage"
+        "effect_type"   "negative"
+    }
+    "5213"
+    {
+        "name"  "crit vs gassed players"
+        "attribute_class"   "set_crit_vs_gassed"
+        "description_format"    "value_is_additive"
+        "effect_type"   "positive"
+    }
+    "5214"
+    {
+        "name"  "damage resistance while disguised"
+        "attribute_class"   "mult_dmgtaken_while_disguised"
+        "description_format"    "value_is_percentage"
+        "effect_type"   "positive"
+    }
+    //Reduces the ubercharge gained by 50% when the patient is above a certain threshold
+    //This will not overwrite the default penalty received when healing above 142.5%
+    "5215"
+    {
+        "name"  "reduce ubercharge build rate above threshold"
+        "attribute_class"   "mult_uberchargerate_above_threshold"
+        "description_format"    "value_is_percentage"
+        "effect_type"   "negative"
+    }
+    "5216"
+    {
+        "name"  "decaying dmg penalty after sticky arm"
+        "attribute_class"   "mult_dmg_after_arm_decays"
+        "description_format"    "value_is_percentage"
+        "effect_type"   "negative"
+    }
+    "5217"
+    {
+        "name"  "remove overheal on hit"
+        "attribute_class"   "remove_overheal_on_hit"
+        "description_format"    "value_is_additive"
+        "effect_type"   "positive"
+    }
+    "5218"
+    {
+        "name"  "apply healing received penalty on hit"
+        "attribute_class"   "mult_healing_on_hit"
+        "description_format"    "value_is_percentage"
+        "effect_type"   "positive"
+    }
+    "5219"
+    {
+        "name"  "damage bonus vs stunned players"
+        "attribute_class"   "mult_dmg_vs_stunned_players"
+        "description_format"    "value_is_percentage"
+        "effect_type"   "positive"
+    }
+    "5220"
+    {
+        "name"  "speed boost on hit burning player"
+        "attribute_class"   "speed_boost_on_hit_burning"
+        "description_format"    "value_is_additive"
+        "effect_type"   "positive"
+    }
+    "5221"
+    {
+        "name"  "remove afterburn on hit"
+        "attribute_class"   "hit_clears_afterburn"
+        "description_format"    "value_is_additive"
+        "effect_type"   "positive"
+    }
+    "5222"
+    {
+        "name"  "heal on kill any weapon"
+        "attribute_class"   "health_on_kill_any_weapon"
+        "description_format"    "value_is_additive"
+        "effect_type"   "positive"
+    }
+    "5223"
+    {
+        "name"  "heal on assist"
+        "attribute_class"   "heal_on_assist"
+        "description_format"    "value_is_additive"
+        "effect_type"   "positive"
+    }
+    "5224"
+    {
+        "name"  "damage pierces resistance effects fixed"
+        "attribute_class"   "dmg_pierce_resistances"
+        "description_format"    "value_is_additive"
         "effect_type"   "positive"
     }
 }

@@ -13,9 +13,9 @@
 #include <tf2attributes>
 #include <tf2_stocks>
 
-#define PRIM_FIRE_RATE_BONUS_ATTRIB_INDEX 5202
+#define PRIM_FIRE_RATE_BONUS_ATTRIB_INDEX 5200
 #define FIRE_RATE_BONUS_ATTRIB_INDEX 348
-#define MAXIMUM_WEAPON_SLOTS 7
+#define MAXIMUM_WEAPON_SLOTS 5
 
 public void OnPluginStart()
 {

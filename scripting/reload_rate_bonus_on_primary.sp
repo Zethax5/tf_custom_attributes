@@ -13,9 +13,9 @@
 #include <tf2attributes>
 #include <tf2_stocks>
 
-#define PRIM_RELOAD_RATE_BONUS_ATTRIB_INDEX 5203
+#define PRIM_RELOAD_RATE_BONUS_ATTRIB_INDEX 4999
 #define RELOAD_RATE_BONUS_ATTRIB_INDEX 97
-#define MAXIMUM_WEAPON_SLOTS 7
+#define MAXIMUM_WEAPON_SLOTS 5
 
 public void OnPluginStart()
 {
