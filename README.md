@@ -116,6 +116,22 @@ These plugins are rather dirty, and I'm absolutely certain there are better ways
 "heal on assist" #5223
   Assisting in a kill will heal for the given amount. This can overheal up to 150%.
   Respects "While Active" rules.
+
+"damage pierces resistance effects fixed" #5224
+  Allows damage dealt by a weapon to pierce resistance effects. Only works with bullet resistance, as this is meant to go on a Spy's Revolver.
+    1 = Enabled.
+
+"kill increases reload speed" #5225
+  Grants the provided percentage of reload speed on kill, which can stack up to 4 times. Does not come with a counter for kills, as this is meant to go on the Air Strike.
+    0.25 = 25% bonus reload speed on kill
+
+"dmg bonus vs players with more health" #5226
+  Multiplies damage dealt to a player with more maximum health than you.
+    1.25 = 25% more damage vs players with more maximum health
+
+"dmg penalty vs players with less health" #5227
+  Multiplies damage dealt to a player with the same or less maximum health than you.
+    0.75 = 25% less damage vs players with less maximum health
 ```
 
 </p>
