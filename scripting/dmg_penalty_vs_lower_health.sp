@@ -1,7 +1,7 @@
 /**
- * dmg_bonus_vs_stunned_players
+ * dmg_bonus_vs_lower_health
  * 
- * Attribute that increases a weapon's damage against dazed players
+ * Adds an attribute that multiplies a weapon's damage against players with the same or less health than the attacker
  */
 #pragma semicolon 1
 #include <sourcemod>
@@ -11,9 +11,8 @@
 
 #include <sdkhooks>
 #include <tf2attributes>
-#include <tf2_stocks>
 
-#define DMG_BONUS_VS_STUNNED_ATTRIB 5219
+#define DMG_PENALTY_VS_LOW_HP_ATTRIB 5227
 
 public void OnMapStart() {
 	for (int i = 1; i <= MaxClients; i++) {
@@ -33,11 +32,11 @@ public Action OnTakeDamage(int iVictim, int &iAttacker, int &iInflictor, float &
 	{
 		if(iWeapon > -1)
 		{
-			if(TF2Attrib_GetByDefIndex(iWeapon, DMG_BONUS_VS_STUNNED_ATTRIB) != Address_Null)
+			if(TF2Attrib_GetByDefIndex(iWeapon, DMG_PENALTY_VS_LOW_HP_ATTRIB) != Address_Null)
 			{
-				if(TF2_IsPlayerInCondition(iVictim, TFCond_Dazed))
+				if(GetClientMaxHealth(iAttacker) >= GetClientMaxHealth(iVictim))
 				{
-					float fDamageMultiplier = TF2Attrib_GetValue(TF2Attrib_GetByDefIndex(iWeapon, DMG_BONUS_VS_STUNNED_ATTRIB));
+					float fDamageMultiplier = TF2Attrib_GetValue(TF2Attrib_GetByDefIndex(iWeapon, DMG_PENALTY_VS_LOW_HP_ATTRIB));
 					fDamage *= fDamageMultiplier;
 					return Plugin_Changed;
 				}

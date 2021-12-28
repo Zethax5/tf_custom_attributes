@@ -57,16 +57,19 @@ public Action TF2_CalcIsAttackCritical(int iClient, int iWeapon, char[] sWeaponN
 {
 	if(IsValidClient(iClient))
 	{
-		g_fTimeSinceFiring[iClient] = GetEngineTime() + DEFAULT_STICKY_ARM_TIME;
 		if(iWeapon > -1)
 		{
-			if(TF2Attrib_GetByDefIndex(iWeapon, ARM_TIME_BONUS_ATTRIB) != Address_Null)
+			if(TF2Attrib_GetByDefIndex(iWeapon, DMG_PENALTY_AFTER_ARM_ATTRIB_INDEX) != Address_Null)
 			{
-				g_fTimeSinceFiring[iClient] += TF2Attrib_GetValue(TF2Attrib_GetByDefIndex(iWeapon, ARM_TIME_BONUS_ATTRIB));
-			}
-			if(TF2Attrib_GetByDefIndex(iWeapon, ARM_TIME_PENALTY_ATTRIB) != Address_Null)
-			{
-				g_fTimeSinceFiring[iClient] += TF2Attrib_GetValue(TF2Attrib_GetByDefIndex(iWeapon, ARM_TIME_PENALTY_ATTRIB));
+				g_fTimeSinceFiring[iClient] = GetEngineTime() + DEFAULT_STICKY_ARM_TIME;
+				if(TF2Attrib_GetByDefIndex(iWeapon, ARM_TIME_BONUS_ATTRIB) != Address_Null)
+				{
+					g_fTimeSinceFiring[iClient] += TF2Attrib_GetValue(TF2Attrib_GetByDefIndex(iWeapon, ARM_TIME_BONUS_ATTRIB));
+				}
+				if(TF2Attrib_GetByDefIndex(iWeapon, ARM_TIME_PENALTY_ATTRIB) != Address_Null)
+				{
+					g_fTimeSinceFiring[iClient] += TF2Attrib_GetValue(TF2Attrib_GetByDefIndex(iWeapon, ARM_TIME_PENALTY_ATTRIB));
+				}
 			}
 		}
 	}

@@ -180,4 +180,25 @@
         "description_format"    "value_is_additive"
         "effect_type"   "positive"
     }
+    "5225"
+    {
+        "name"  "kill increases reload speed"
+        "attribute_class"   "kill_grants_reload_speed"
+        "description_format"    "value_is_percentage"
+        "effect_type"   "positive"
+    }
+    "5226"
+    {
+        "name"  "dmg bonus vs players with more health"
+        "attribute_class"   "mult_dmg_vs_higher_health"
+        "description_format"    "value_is_percentage"
+        "effect_type"   "positive"
+    }
+    "5227"
+    {
+        "name"  "dmg penalty vs players with less health"
+        "attribute_class"   "mult_dmg_vs_lower_health"
+        "description_format"    "value_is_percentage"
+        "effect_type"   "negative"
+    }
 }

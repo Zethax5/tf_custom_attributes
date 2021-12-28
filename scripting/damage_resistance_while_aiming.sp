@@ -14,6 +14,7 @@
 #include <tf2_stocks>
 
 #define DAMAGE_RESISTANCE_AIMING_ATTRIB_INDEX 5208
+#define DAMAGE_PIERCES_FIXED 5224
 
 bool g_bAiming[MAXPLAYERS + 1];
 
@@ -37,6 +38,10 @@ public Action OnTakeDamageAlive(int iVictim, int &iAttacker, int &iInflictor, fl
 		{
 			if(g_bAiming[iVictim])
 			{
+				if(TF2Attrib_GetByDefIndex(iWeapon, DAMAGE_PIERCES_FIXED) != Address_Null)
+				{
+					return Plugin_Continue;
+				}
 				if(TF2Attrib_GetByDefIndex(GetActiveWeapon(iVictim), DAMAGE_RESISTANCE_AIMING_ATTRIB_INDEX) != Address_Null)
 				{
 					float fMultiplier = TF2Attrib_GetValue(TF2Attrib_GetByDefIndex(GetActiveWeapon(iVictim), DAMAGE_RESISTANCE_AIMING_ATTRIB_INDEX));

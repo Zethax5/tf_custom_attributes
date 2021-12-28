@@ -15,6 +15,7 @@
 
 #define WHILE_ACTIVE_ATTRIB_INDEX 128
 #define DAMAGE_RESISTANCE_DISGUISED_ATTRIB_INDEX 5214
+#define DAMAGE_PIERCES_FIXED 5224
 #define MAX_WEAPON_SLOTS 5
 
 bool g_bDisguised[MAXPLAYERS + 1];
@@ -35,6 +36,10 @@ public Action OnTakeDamageAlive(int iVictim, int &iAttacker, int &iInflictor, fl
 {
 	if(IsValidClient(iVictim))
 	{
+		if(TF2Attrib_GetByDefIndex(iWeapon, DAMAGE_PIERCES_FIXED) != Address_Null)
+		{
+			return Plugin_Continue;
+		}
 		if(g_bDisguised[iVictim])
 		{
 			fDamage = DisguisedDamageReduction(iVictim, fDamage);

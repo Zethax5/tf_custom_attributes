@@ -15,6 +15,7 @@
 #include <tf2_stocks>
 
 #define RAMPING_DAMAGE_RESISTANCE_AIMING_ATTRIB_INDEX 5209
+#define DAMAGE_PIERCES_FIXED 5224
 #define PRETHINK_INTERVAL 0.1
 #define MAXIMUM_AIMTIME 2.0 //The interval over which the damage resistance will ramp up
 
@@ -35,11 +36,11 @@ public void OnMapStart()
 
 public void OnClientPutInServer(int iClient) 
 {
-	SDKHook(iClient, SDKHook_OnTakeDamageAlive, OnTakeDamageAlive);
+	SDKHook(iClient, SDKHook_OnTakeDamageAlive, OnTakeDamage);
 	SDKHook(iClient, SDKHook_PreThink, OnClientPreThink);
 }
 
-public Action OnTakeDamageAlive(int iVictim, int &iAttacker, int &iInflictor, float &fDamage, int &iDamageType, int &iWeapon, float[3] fDamageForce, float[3] fDamagePos)
+public Action OnTakeDamage(int iVictim, int &iAttacker, int &iInflictor, float &fDamage, int &iDamageType, int &iWeapon, float[3] fDamageForce, float[3] fDamagePos)
 {
 	if(IsValidClient(iVictim))
 	{
@@ -47,6 +48,10 @@ public Action OnTakeDamageAlive(int iVictim, int &iAttacker, int &iInflictor, fl
 		{
 			if(g_bAiming[iVictim])
 			{
+				if(TF2Attrib_GetByDefIndex(iWeapon, DAMAGE_PIERCES_FIXED) != Address_Null)
+				{
+					return Plugin_Continue;
+				}
 				if(TF2Attrib_GetByDefIndex(GetActiveWeapon(iVictim), RAMPING_DAMAGE_RESISTANCE_AIMING_ATTRIB_INDEX) != Address_Null)
 				{
 					float fMultiplier = TF2Attrib_GetValue(TF2Attrib_GetByDefIndex(GetActiveWeapon(iVictim), RAMPING_DAMAGE_RESISTANCE_AIMING_ATTRIB_INDEX));
