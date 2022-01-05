@@ -34,7 +34,7 @@ public void OnClientPutInServer(int iClient) {
 
 public Action OnTakeDamageAlive(int iVictim, int &iAttacker, int &iInflictor, float &fDamage, int &iDamageType, int &iWeapon, float[3] fDamageForce, float[3] fDamagePos)
 {
-	if(IsValidClient(iVictim))
+	if(IsValidClient(iVictim) && iWeapon > -1)
 	{
 		if(TF2Attrib_GetByDefIndex(iWeapon, DAMAGE_PIERCES_FIXED) != Address_Null)
 		{

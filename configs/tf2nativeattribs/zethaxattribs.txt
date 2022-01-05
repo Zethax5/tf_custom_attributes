@@ -201,4 +201,11 @@
         "description_format"    "value_is_percentage"
         "effect_type"   "negative"
     }
+    "5228"
+    {
+        "name"  "restore missing health on kill"
+        "attribute_class"   "restore_missing_health_on_kill"
+        "description_format"    "value_is_percentage"
+        "effect_type"   "positive"
+    }
 }

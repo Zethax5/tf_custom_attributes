@@ -33,6 +33,8 @@ public void OnMapStart() {
 		}
 	}
 
+	HookEvent("player_builtobject", Event_PlaceBuilding);
+
 	if (IsValidEntity(0))
 	{
 		int i = -1;
@@ -50,7 +52,7 @@ public void OnClientPutInServer(int iClient) {
 public Action OnTakeDamage(int iVictim, int &iAttacker, int &iInflictor, float &fDamage, int &iDamageType, int &iWeapon, float[3] fDamageForce, float[3] fDamagePos)
 {
 	Action aAction;
-	if(IsValidClient(iAttacker))
+	if(IsValidClient(iAttacker) && IsValidClient(iVictim))
 	{
 		if(iWeapon > -1)
 		{
@@ -58,7 +60,7 @@ public Action OnTakeDamage(int iVictim, int &iAttacker, int &iInflictor, float &
 			{
 				if(TF2_IsPlayerInCondition(iVictim, BATTALIONS_BACKUP_EFFECT))
 				{
-					fDamage += fDamage * 0.35;
+					fDamage += fDamage * 0.5;
 					aAction = Plugin_Changed;
 				}
 				if(TF2_IsPlayerInCondition(iVictim, VACC_BULLET_RESIST_UBER))
@@ -81,26 +83,34 @@ public Action OnTakeDamage(int iVictim, int &iAttacker, int &iInflictor, float &
 					int iVictimWeapon = GetPlayerWeaponSlot(iVictim, i);
 					if(iVictimWeapon > -1)
 					{
-						if(TF2Attrib_GetByDefIndex(iWeapon, BULLET_RESISTANCE_ATTRIB) != Address_Null)
+						if(TF2Attrib_GetByDefIndex(iVictimWeapon, BULLET_RESISTANCE_ATTRIB) != Address_Null)
 						{
-							if(TF2Attrib_GetByDefIndex(iWeapon, WHILE_ACTIVE_ATTRIB) != Address_Null && GetActiveWeapon(iVictim) == iVictimWeapon)
+							PrintToChat(iAttacker, "Victim weapon slot %i has bullet resistance", i);
+							if(TF2Attrib_GetByDefIndex(iVictimWeapon, WHILE_ACTIVE_ATTRIB) != Address_Null && GetActiveWeapon(iVictim) == iVictimWeapon)
 							{
-								float fBulletResistance = TF2Attrib_GetValue(TF2Attrib_GetByDefIndex(iWeapon, BULLET_RESISTANCE_ATTRIB));
+								float fBulletResistance = TF2Attrib_GetValue(TF2Attrib_GetByDefIndex(iVictimWeapon, BULLET_RESISTANCE_ATTRIB));
 								fDamage *= (1.0 / fBulletResistance); //We multiply damage by the reciprocal of the resistance to remove said resistance
 								aAction = Plugin_Changed;
+								PrintToChat(iAttacker, "Active bullet resist negated: %f", fBulletResistance);
 							}
 							else
 							{
-								float fBulletResistance = TF2Attrib_GetValue(TF2Attrib_GetByDefIndex(iWeapon, BULLET_RESISTANCE_ATTRIB));
+								float fBulletResistance = TF2Attrib_GetValue(TF2Attrib_GetByDefIndex(iVictimWeapon, BULLET_RESISTANCE_ATTRIB));
 								fDamage *= (1.0 / fBulletResistance); //We multiply damage by the reciprocal of the resistance to remove said resistance
 								aAction = Plugin_Changed;
+								PrintToChat(iAttacker, "Bullet resist negated: %f", fBulletResistance);
 							}
 						}
-						if(TF2Attrib_GetByDefIndex(iWeapon, RANGED_DMG_RESISTANCE_ATTRIB) != Address_Null && GetActiveWeapon(iVictim) == iVictimWeapon)
+						if(TF2Attrib_GetByDefIndex(iVictimWeapon, RANGED_DMG_RESISTANCE_ATTRIB) != Address_Null)
 						{
-							float fRangedResistance = TF2Attrib_GetValue(TF2Attrib_GetByDefIndex(iWeapon, RANGED_DMG_RESISTANCE_ATTRIB));
-							fDamage *= (1.0 / fRangedResistance); //We multiply damage by the reciprocal of the resistance to remove said resistance
-							aAction = Plugin_Changed;
+							PrintToChat(iAttacker, "Victim weapon slot %i has ranged resistance", i);
+							if(GetActiveWeapon(iVictim) == iVictimWeapon)
+							{
+								float fRangedResistance = TF2Attrib_GetValue(TF2Attrib_GetByDefIndex(iVictimWeapon, RANGED_DMG_RESISTANCE_ATTRIB));
+								fDamage *= (1.0 / fRangedResistance); //We multiply damage by the reciprocal of the resistance to remove said resistance
+								aAction = Plugin_Changed;
+								PrintToChat(iAttacker, "Ranged resist negated: %f", fRangedResistance);
+							}
 						}
 					}
 				}

@@ -14,7 +14,7 @@
 #include <tf2_stocks>
 
 #define CLOSERANGE_IGNITE_ATTRIB_INDEX 5207
-#define CLOSERANGE_IGNITE_RANGE 500 //same range as the Back Scatter's minicrit range
+#define CLOSERANGE_IGNITE_RANGE 125 //in HU
 
 public void OnMapStart() {
 	for (int i = 1; i <= MaxClients; i++) {
