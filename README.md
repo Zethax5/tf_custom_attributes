@@ -132,6 +132,10 @@ These plugins are rather dirty, and I'm absolutely certain there are better ways
 "dmg penalty vs players with less health" #5227
   Multiplies damage dealt to a player with the same or less maximum health than you.
     0.75 = 25% less damage vs players with less maximum health
+
+"restore missing health on kill" #5228
+  Restores the provided percentage of a player's missing health on kill. 
+    0.25 = 25% missing health (max health - current health) will be restored
 ```
 
 </p>
